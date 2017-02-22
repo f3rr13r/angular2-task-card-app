@@ -1,0 +1,36 @@
+.card,
+.card-footer
+{
+    background-color: #FFFFA5;
+    border: none;
+    cursor: pointer;
+}
+
+.card.completed,
+.card.completed .card-footer
+{
+    background-color: #EEE;
+    color: #CCC;
+}
+
+.card-footer
+{
+    text-align: right;
+}
+
+.fa-times,
+.fa-check
+{
+    padding-right: .5rem;
+}
+
+.fa-times
+{
+    color: #CC0000;
+}
+
+.fa-check
+{
+    color: #CCC;
+}
+
