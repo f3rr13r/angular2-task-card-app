@@ -1,0 +1,45 @@
+<div class="card" (click)="toggleUnits()" [ngStyle]="setStyles()">
+    <div class="card-header" [class.invisible]="!dataReceived">
+        <div class="col-xs-8" id="location-wrapper">
+            <p><i class="fa fa-map-marker" aria-hidden="true"></i> Cardiff, UK</p>
+        </div>
+        <div class="col-xs-4 text-xs-right">
+            <h1>{{ weatherData.temp | tempUnit: currentTempUnit | number: '.0-0' }}&deg;</h1>
+        </div>
+    </div>
+    <div class="card-block">
+        <div id="indicator" [hidden]="dataReceived">
+            <i class="fa fa-circle-o-notch fa-spin fa-4x fa-fw"></i>
+            <span class="sr-only">Loading...</span>
+        </div>
+        <canvas id="icon" [hidden]="!dataReceived"></canvas>
+        <p [hidden]="!dataReceived">{{ weatherData.summary }}</p>
+    </div>
+    <div class="card-footer" [class.invisible]="!dataReceived">
+        <div class="row" id="detail-row">
+            <div class="col-xs-4"> <!-- ORIGINAL - COL-XS-5 -->
+                <p>Wind</p>
+                <p class="unit-label">{{ weatherData.wind | speedUnit: currentSpeedUnit }}</p>
+            </div>
+
+            <!-- TEST DIV -->
+
+            <div class="col-xs-4" id="refresh">
+                <button type="button" class="btn btn-secondary" (click)="refreshWeatherData()">
+                <i class="fa fa-refresh" aria-hidden="true"></i>
+                </button>
+            </div>
+
+
+            <div class="col-xs-4"> <!-- ORIGINAL - COL-XS-5 COL-XS-OFFSET-2 -->
+                <p>Humidity</p>
+                <p>{{ weatherData.humidity | percent }}</p>
+            </div>
+        </div>
+        <div class="row" id="helper-row">
+        <small class="text-muted">
+            Click to switch between &deg;f/kph and &deg;c/mph
+        </small>
+    </div>
+    </div>
+</div>
